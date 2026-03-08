@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import PopupModal from "@/components/PopupModal";
 import Hero from "@/components/Hero";
 import Expeditions from "@/components/Expeditions";
 import Footer from "@/components/Footer";
@@ -9,6 +10,7 @@ import GallerySection from "@/components/GallerySection";
 export default function Home() {
   return (
     <div>
+      <PopupModal />
       <Navbar />
       <Hero />
       <Expeditions />

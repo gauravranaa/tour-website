@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+type PickupType = "delhi" | "haldwani" | "pithoragarh";
+
 export default function AdiKailash() {
 
-  const [pickup, setPickup] = useState("haldwani");
+  const [pickup, setPickup] = useState<PickupType>("haldwani");
 
   const images = [
     "/images/kailash1.jpg",
@@ -25,7 +27,7 @@ export default function AdiKailash() {
     return () => clearInterval(interval);
   }, []);
 
-  const itineraries = {
+  const itineraries: Record<PickupType, string[]> = {
     delhi: [
       "Day 1: Delhi to Haldwani",
       "Day 2: Haldwani to Dharchula",

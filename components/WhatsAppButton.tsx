@@ -1,12 +1,19 @@
-export default function WhatsAppButton() {
+"use client";
+
+export default function WhatsappButton() {
+
+  const phoneNumber = "919999999999"; // replace with your number
+  const message = "Hello, I want details about Adi Kailash Trip";
+
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
   return (
     <a
-      href="https://wa.me/91XXXXXXXXXX"
+      href={whatsappLink}
       target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300 z-50"
+      className="fixed bottom-5 right-5 z-50 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition flex items-center gap-2"
     >
-      WhatsApp us💬
+      💬 Chat on WhatsApp
     </a>
   );
 }

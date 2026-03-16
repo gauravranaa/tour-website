@@ -1,22 +1,50 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function About() {
+
+  const images = [
+    "/images/Adikailash4.png",
+    "/images/Om2.png",
+    "/images/Darma2.png"
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="bg-[url('/images/kailash.jpg')] bg-cover bg-center h-[60vh] flex items-center justify-center text-white">
-        <div className="bg-black/60 p-10 rounded-2xl text-center max-w-3xl">
-          <h1 className="text-5xl font-bold mb-4">
-            About Sacred Himalayan Expeditions
-          </h1>
-          <p className="text-lg">
-            Born in the Himalayas. Guided by Faith.
-          </p>
-        </div>
-      </section>
+      {/* Hero Section with Auto Image Slider */}
+     <section
+  className="bg-cover bg-center min-h-screen flex items-center justify-center text-white transition-all duration-700"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${images[currentImage]})`
+  }}
+>
+  <div className="bg-black/60 backdrop-blur-md p-10 rounded-2xl text-center max-w-3xl">
+
+    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+      About KailashNath Tourism
+    </h1>
+
+    <p className="text-lg md:text-xl">
+      Born in the Himalayas. Guided by Faith.
+    </p>
+
+  </div>
+</section>
 
       {/* Story Section */}
       <section className="py-20 px-8 max-w-5xl mx-auto">
@@ -25,7 +53,7 @@ export default function About() {
         </h2>
 
         <p className="text-gray-700 leading-relaxed mb-6">
-          Sacred Himalayan Expeditions was founded with one vision —
+          KailashNath Tourism was founded with one vision —
           to make the divine journeys of Adi Kailash and Om Parvat
           safe, authentic, and spiritually meaningful.
         </p>

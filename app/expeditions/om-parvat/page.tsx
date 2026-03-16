@@ -52,18 +52,11 @@ export default function OmParvat() {
           Pricing
         </h2>
 
-        <div className="bg-gray-100 p-8 rounded-xl shadow-md">
-          <p className="text-2xl font-semibold text-orange-600">
-            ₹28,000 per person
-          </p>
-          <p className="mt-4">
-            Includes transport, accommodation, permits & meals.
-          </p>
-        </div>
+        
 
         <div className="mt-10 text-center">
           <a
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/916395515336"
             className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition"
           >
             Enquire on WhatsApp

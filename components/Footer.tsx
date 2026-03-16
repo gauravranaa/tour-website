@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-4">
-            DevBhoomi Trails
+            Kailash Nath Tourism
           </h3>
           <p className="text-gray-400">
             Sacred Himalayan pilgrimages to Adi Kailash, Om Parvat and
@@ -38,13 +38,18 @@ export default function Footer() {
           </h4>
 
           <p>📍 Uttarakhand, India</p>
-          <p>📞 +91 XXXXXXXX</p>
-          <p>✉ info@devbhoomitrails.com</p>
+          <p>
+          <strong>Phone:</strong> +91 6395515336, +91 9389663855
+        </p>
+          <p>✉ kailashnathadikailashtourism@gmail.com</p>
 
           <div className="flex gap-4 mt-4">
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
+            <a href="https://www.instagram.com/kailashnathtourism_12?igsh=M2liNXBiMmVyMHlt">Instagram</a>
+            
           </div>
+<div className="flex gap-4 mt-4">
+          <a href="https://wa.me/916395515336">Whatsapp </a>
+        </div>
         </div>
 
       </div>

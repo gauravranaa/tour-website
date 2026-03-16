@@ -1,12 +1,27 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useState } from "react";
 
 export default function PrivateTrip() {
 
-  const [destination, setDestination] = useState("Adi Kailash");
+  const [destination, setDestination] = useState("Adi Kailash & Om Parvat");
+
+  const images = [
+    "/images/Adikailash4.png",
+    "/images/Om2.png",
+    "/images/Darma2.png"
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
@@ -14,38 +29,45 @@ export default function PrivateTrip() {
       <Navbar />
 
       {/* HERO */}
-      <section className="bg-[url('/images/kailash.jpg')] bg-cover bg-center h-[60vh] flex items-center justify-center text-white">
-        <div className="bg-black/60 p-10 rounded-xl text-center max-w-2xl">
+      <section
+  className="bg-cover bg-center min-h-screen flex items-center justify-center text-white transition-all duration-700"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${images[currentImage]})`
+  }}
+>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Private Himalayan Expeditions
-          </h1>
+  <div className="bg-black/60 p-10 rounded-xl text-center max-w-2xl">
 
-          <p className="mb-6 text-lg">
-            Design your own spiritual journey to Adi Kailash, Om Parvat or Panchachuli
-            with flexible travel dates and personalized planning.
-          </p>
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      Private Himalayan Expeditions
+    </h1>
 
-          <div className="flex gap-4 justify-center">
+    <p className="mb-6 text-lg">
+      Design your own spiritual journey to Adi Kailash & Om Parvat or
+      Panchachuli Base Camp with flexible travel dates and personalized planning.
+    </p>
 
-            <a
-              href="#inquiry"
-              className="bg-orange-500 px-6 py-3 rounded-full hover:bg-orange-600 transition"
-            >
-              Plan My Private Trip
-            </a>
+    <div className="flex gap-4 justify-center">
 
-            <a
-              href="https://wa.me/91XXXXXXXXXX"
-              className="bg-green-600 px-6 py-3 rounded-full hover:bg-green-700 transition"
-            >
-              WhatsApp Us
-            </a>
+      <a
+        href="#inquiry"
+        className="bg-orange-500 px-6 py-3 rounded-full hover:bg-orange-600 transition"
+      >
+        Plan My Private Trip
+      </a>
 
-          </div>
+      <a
+        href="https://wa.me/916395515336"
+        className="bg-green-600 px-6 py-3 rounded-full hover:bg-green-700 transition"
+      >
+        WhatsApp Us
+      </a>
 
-        </div>
-      </section>
+    </div>
+
+  </div>
+
+</section>
 
       {/* WHY PRIVATE TRIP */}
       <section className="py-20 max-w-6xl mx-auto px-8">
@@ -75,6 +97,7 @@ export default function PrivateTrip() {
 
       </section>
 
+
       {/* DESTINATIONS */}
       <section className="py-20 bg-gray-100 px-8">
 
@@ -82,13 +105,13 @@ export default function PrivateTrip() {
           Choose Your Destination
         </h2>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
 
-          {["Adi Kailash", "Om Parvat", "Panchachuli"].map((place) => (
+          {["Adi Kailash & Om Parvat", "Panchachuli Base Camp"].map((place) => (
             <button
               key={place}
               onClick={() => setDestination(place)}
-              className={`p-6 rounded-xl border transition text-center
+              className={`p-6 rounded-xl border transition text-center text-lg font-medium
               ${destination === place ? "bg-orange-500 text-white" : "bg-white"}`}
             >
               {place}
@@ -99,7 +122,6 @@ export default function PrivateTrip() {
 
       </section>
 
-      
 
       {/* SAMPLE ITINERARY */}
       <section className="py-20 bg-gray-100 px-8">
@@ -110,13 +132,24 @@ export default function PrivateTrip() {
             Sample Private {destination} Itinerary
           </h2>
 
-          <ul className="space-y-4">
+          <ul className="space-y-4 text-gray-700">
 
             <li>Day 1: Arrival & briefing</li>
             <li>Day 2: Journey towards Dharchula</li>
             <li>Day 3: Travel to Gunji</li>
-            <li>Day 4: {destination} Darshan</li>
-            <li>Day 5: Explore nearby spiritual locations</li>
+
+            <li>
+              Day 4: {destination === "Adi Kailash & Om Parvat"
+                ? "Adi Kailash Darshan & Om Parvat Visit"
+                : "Panchachuli Base Camp Trek"}
+            </li>
+
+            <li>
+              Day 5: {destination === "Adi Kailash & Om Parvat"
+                ? "Explore Parvati Sarovar & nearby spiritual locations"
+                : "Explore Darma Valley landscapes"}
+            </li>
+
             <li>Day 6: Return journey</li>
 
           </ul>
@@ -128,7 +161,9 @@ export default function PrivateTrip() {
         </div>
 
       </section>
-{/* HOW IT WORKS */}
+
+
+      {/* HOW IT WORKS */}
       <section className="py-20 max-w-6xl mx-auto px-8">
 
         <h2 className="text-3xl font-bold text-center mb-12">
@@ -160,25 +195,43 @@ export default function PrivateTrip() {
         </div>
 
       </section>
+
+
       {/* INQUIRY FORM */}
       <section id="inquiry" className="py-20 px-8">
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
 
           <div>
+
             <h2 className="text-3xl font-bold mb-6">
               Plan Your Private Journey
             </h2>
 
-            <p className="mb-6 text-gray-600">
-              Tell us your group size, preferred dates and pickup location.
-              Our team will create a personalized itinerary for your trip.
-            </p>
+            <p className="text-gray-600 mb-6">
+        For Adi Kailash, Om Parvat & Panchachuli expeditions,
+        contact us for batch dates, permits and customized
+        travel planning.
+      </p>
 
-            <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-            <p><strong>Email:</strong> info@sacredhimalayan.com</p>
+      <div className="space-y-4 text-gray-700">
+
+        <p>
+          <strong>Phone:</strong> +91 6395515336, +91 9389663855
+        </p>
+
+        <p>
+          <strong>Email:</strong> kailashnathadikailashtourism@gmail.com
+        </p>
+
+        <p>
+          <strong>Location:</strong> Uttarakhand, India
+        </p>
+
+      </div>
 
           </div>
+
 
           <div className="bg-gray-100 p-8 rounded-xl shadow-md">
 
@@ -238,6 +291,7 @@ export default function PrivateTrip() {
 
       </section>
 
+
       {/* FINAL CTA */}
       <section className="py-16 bg-orange-500 text-white text-center">
 
@@ -250,7 +304,7 @@ export default function PrivateTrip() {
         </p>
 
         <a
-          href="https://wa.me/91XXXXXXXXXX"
+          href="https://wa.me/916395515336"
           className="bg-white text-orange-500 px-6 py-3 rounded-full font-semibold"
         >
           Chat on WhatsApp

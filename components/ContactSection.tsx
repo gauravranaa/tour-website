@@ -19,15 +19,27 @@ export default function ContactSection() {
               expedition dates, permit guidance and customized plans.
             </p>
 
-            <div className="space-y-4 text-gray-800">
-              <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-              <p><strong>Email:</strong> info@sacredhimalayan.com</p>
-              <p><strong>Location:</strong> Uttarakhand, India</p>
-            </div>
+        
+
+      <div className="space-y-4 text-gray-700">
+
+        <p>
+          <strong>Phone:</strong> +91 6395515336, +91 9389663855
+        </p>
+
+        <p>
+          <strong>Email:</strong> kailashnathadikailashtourism@gmail.com
+        </p>
+
+        <p>
+          <strong>Location:</strong> Uttarakhand, India
+        </p>
+
+      </div>
 
             <div className="mt-8">
               <a
-                href="https://wa.me/91XXXXXXXXXX"
+                href="https://wa.me/916395515336"
                 className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition"
               >
                 Chat on WhatsApp

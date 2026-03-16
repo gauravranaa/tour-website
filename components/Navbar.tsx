@@ -26,7 +26,7 @@ export default function Navbar() {
           href="/"
           className="text-xl md:text-2xl font-bold text-orange-600 hover:scale-105 transition"
         >
-          <span className="text-orange-600">DevBhoomi</span> Trails
+          <span className="text-orange-600">Kailash Nath</span> Tourism
         </Link>
 
         {/* Desktop Menu */}

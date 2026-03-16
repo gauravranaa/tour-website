@@ -37,7 +37,7 @@ export default function GallerySection() {
 
   <div className="text-center">
     <img
-      src="/images/Adikailash2.png"
+      src="/images/adikailash2.png"
       alt="Adi Kailash Lake"
       className="rounded-xl object-cover h-72 w-full hover:scale-105 transition duration-300"
     />

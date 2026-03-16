@@ -7,20 +7,20 @@ import Footer from "@/components/Footer";
 export default function Panchachuli() {
 
   const images = [
-    "/images/panchachuli1.jpg",
-    "/images/panchachuli2.jpg",
-    "/images/panchachuli3.jpg",
-    "/images/panchachuli4.jpg"
+    "/images/Darma2.png",
+    "/images/Darrma1.png"
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
+
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 4000); // slower transition feels better
 
     return () => clearInterval(interval);
+
   }, []);
 
   return (
@@ -28,9 +28,21 @@ export default function Panchachuli() {
 
       <Navbar />
 
-      {/* HERO */}
-      <section className="bg-[url('/images/panchachuli.jpg')] bg-cover bg-center h-[60vh] flex items-center justify-center text-white">
-        <div className="bg-black/60 p-8 rounded-xl text-center">
+      {/* HERO FULL PAGE SLIDER */}
+
+      <section className="relative h-[calc(100vh-80px)] w-full flex items-center justify-center text-white overflow-hidden">
+
+        <img
+          key={currentImage}
+          src={images[currentImage]}
+          alt="Panchachuli Trek"
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-700"
+        />
+
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        <div className="relative z-10 bg-black/60 backdrop-blur-md p-10 rounded-2xl text-center max-w-3xl">
+
           <h1 className="text-4xl md:text-5xl font-bold">
             Panchachuli Base Camp Trek
           </h1>
@@ -38,12 +50,16 @@ export default function Panchachuli() {
           <p className="mt-4 text-lg">
             Explore the Untouched Beauty of Darma Valley
           </p>
+
         </div>
+
       </section>
+
+
+      {/* ABOUT TREK */}
 
       <section className="py-16 px-8 max-w-5xl mx-auto">
 
-        {/* ABOUT */}
         <h2 className="text-3xl font-bold mb-6">
           About the Trek
         </h2>
@@ -56,37 +72,59 @@ export default function Panchachuli() {
           pristine mountain rivers.
         </p>
 
+
         {/* IMAGE SLIDER */}
-        <div className="mb-12">
 
-          <div className="relative h-[420px] rounded-xl overflow-hidden shadow-xl">
+        <div className="relative h-[420px] rounded-xl overflow-hidden shadow-xl mb-16">
 
-            <img
-              src={images[currentImage]}
-              className="w-full h-full object-cover transition-all duration-700"
-            />
+          <img
+            key={`content-${currentImage}`}
+            src={images[currentImage]}
+            alt="Panchachuli Valley"
+            className="w-full h-full object-cover transition-all duration-700"
+          />
 
+        </div>
+
+
+        {/* TREK HIGHLIGHTS */}
+
+        <h2 className="text-3xl font-bold mb-10">
+          Trek Highlights
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+
+          <div className="p-6 border rounded-xl text-center shadow-sm">
+            Scenic Darma Valley Drive
+          </div>
+
+          <div className="p-6 border rounded-xl text-center shadow-sm">
+            Panchachuli Base Camp Camping
+          </div>
+
+          <div className="p-6 border rounded-xl text-center shadow-sm">
+            Sunrise Views of Panchachuli Peaks
+          </div>
+
+          <div className="p-6 border rounded-xl text-center shadow-sm">
+            Remote Himalayan Villages
+          </div>
+
+          <div className="p-6 border rounded-xl text-center shadow-sm">
+            Alpine Meadows & Rivers
+          </div>
+
+          <div className="p-6 border rounded-xl text-center shadow-sm">
+            Professional Trek Guides
           </div>
 
         </div>
 
-        {/* HIGHLIGHTS */}
-        <h2 className="text-3xl font-bold mb-6">
-          Trek Highlights
-        </h2>
-
-        <ul className="space-y-4 text-gray-700 mb-12">
-
-          <li>• Scenic drive through Darma Valley</li>
-          <li>• Panchachuli Base Camp camping experience</li>
-          <li>• Sunrise views of Panchachuli peaks</li>
-          <li>• Remote Himalayan villages</li>
-          <li>• Professional trek guide support</li>
-
-        </ul>
 
         {/* DURATION */}
-        <h2 className="text-3xl font-bold mb-6">
+
+        <h2 className="text-3xl font-bold mb-4">
           Duration
         </h2>
 
@@ -96,12 +134,15 @@ export default function Panchachuli() {
 
       </section>
 
-      {/* CONTACT / INQUIRY SECTION */}
+
+      {/* CONTACT + INQUIRY */}
+
       <section className="py-16 px-8 max-w-6xl mx-auto">
 
         <div className="grid md:grid-cols-2 gap-12">
 
-          {/* CONTACT DETAILS */}
+          {/* CONTACT */}
+
           <div>
 
             <h2 className="text-3xl font-bold mb-6">
@@ -134,7 +175,9 @@ export default function Panchachuli() {
 
           </div>
 
-          {/* ENQUIRY FORM */}
+
+          {/* FORM */}
+
           <div className="bg-gray-100 p-8 rounded-xl shadow-md">
 
             <h3 className="text-2xl font-semibold mb-6">

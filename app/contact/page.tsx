@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export default function Contact() {
 
   const images = [
-    "/images/Adikailash4.png",
+    "/images/adikailash4.png",
     "/images/Om2.png",
     "/images/Darma2.png"
   ];

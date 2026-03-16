@@ -86,7 +86,7 @@ export default function GalleryPage() {
 
           <div className="text-center group">
             <img
-              src="/images/Adikailash2.png"
+              src="/images/adikailash2.png"
               alt="Adi Kailash Lake"
               className="rounded-xl w-full h-[300px] object-cover group-hover:scale-105 transition duration-300"
             />

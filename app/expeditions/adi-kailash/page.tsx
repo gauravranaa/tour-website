@@ -12,30 +12,30 @@ export default function AdiKailashPage() {
 
   const itineraries: Record<PickupType, string[]> = {
     delhi: [
-      "Day 1: Delhi to Haldwani",
-      "Day 2: Haldwani to Dharchula",
-      "Day 3: Dharchula to Gunji",
-      "Day 4: Adi Kailash Darshan",
-      "Day 5: Om Parvat Visit",
+      "Day 1: Delhi to Pithoragarh ( via - Kainchi Dham,  Chitai Golu, Jageshwar Dham) night hold Pithoragarh",
+      "Day 2: Pithoragarh (Chandak, Monstmanu Visit) to Dharchula (Nepal Visit)  night hold Dharchula ",
+      "Day 3: Dharchula to Gunji (Night hold Gunji)",
+      "Day 4: Gunji to Adi Kailash (Shiv Parvati Temple, Parvati Sarovar, Bheem ki Kheti, Gauri Kund) Night hold Gunji",
+      "Day 5: Gunji to Om Parvat (Kali Mata temple, Vedh Vyas Gufa Visit) and Back to Pithoragarh",
       "Day 6: Return Journey"
     ],
 
     haldwani: [
-      "Day 1: Arrival at Dharchula",
-      "Day 2: Drive to Gunji",
-      "Day 3: Jolingkong Lake & Adi Kailash Darshan",
-      "Day 4: Om Parvat Visit",
+      "Day 1: Haldwani to Dharchula ( via - Kainchi Dham,  Chitai Golu, Jageshwar Dham) night hold Dharchula",
+      "Day 2: Dharchula to Gunji (Night hold Gunji)",
+      "Day 3: Gunji to Adi Kailash (Shiv Parvati Temple, Parvati Sarovar, Bheem ki Kheti, Gauri Kund) Night hold Gunji",
+      "Day 4: Gunji to Om Parvat (Kali Mata temple, Vedh Vyas Gufa Visit) and Back to Pithoragarh",
       "Day 5: Return to Dharchula",
       "Day 6: Departure"
     ],
 
     pithoragarh: [
-      "Day 1: Arrival at Pithoragarh",
-      "Day 2: Drive to Dharchula",
-      "Day 3: Gunji transfer",
-      "Day 4: Adi Kailash Darshan",
-      "Day 5: Om Parvat Visit",
-      "Day 6: Return"
+      "Day 1: Drive to Dharchula (night hold Dharchula)",
+      "Day 2: Dharchula to Gunji (Night hold Gunji)",
+      "Day 3: Gunji to Adi Kailash (Shiv Parvati Temple, Parvati Sarovar, Bheem ki Kheti, Gauri Kund) Night hold Gunji",
+      "Day 4: Gunji to Om Parvat (Kali Mata temple, Vedh Vyas Gufa Visit) and Back to Pithoragarh",
+      "Day 5: Return to Dharchula",
+      "Day 6: Departure"
     ]
   };
 
@@ -116,7 +116,7 @@ export default function AdiKailashPage() {
 
         {/* ITINERARY */}
         <h2 className="text-3xl font-bold mb-6">
-          Itinerary (6 Days Sample)
+          Itinerary (6 Days Customizable)
         </h2>
 
         <ul className="space-y-4 text-gray-700 mb-16">

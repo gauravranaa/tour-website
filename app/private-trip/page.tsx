@@ -125,6 +125,66 @@ export default function PrivateTrip() {
         </div>
 
       </section>
+      {/* DESTINATION INFO */}
+<section className="py-16 px-8 max-w-5xl mx-auto">
+
+  <h2 className="text-3xl font-bold mb-6 text-center">
+    About {destination}
+  </h2>
+
+  {destination === "Adi Kailash & Om Parvat" && (
+    <div className="bg-white p-8 rounded-xl shadow-md">
+
+      <p className="text-gray-700 leading-relaxed mb-4">
+        Adi Kailash, also known as Chhota Kailash, is one of the most sacred
+        Himalayan pilgrimage destinations located in the Kumaon region of
+        Uttarakhand near the Indo-Tibet border. It resembles the sacred
+        Mount Kailash in Tibet and holds deep spiritual significance.
+      </p>
+
+      <p className="text-gray-700 leading-relaxed mb-4">
+        The journey includes a visit to the beautiful Parvati Sarovar and
+        darshan of Om Parvat, where a natural snow formation resembling the
+        sacred symbol "ॐ" appears on the mountain.
+      </p>
+
+      <ul className="list-disc pl-6 text-gray-700 mt-4 space-y-2">
+        <li>Darshan of Adi Kailash (Chhota Kailash)</li>
+        <li>Visit sacred Om Parvat</li>
+        <li>Explore Parvati Sarovar Lake</li>
+        <li>Experience Himalayan spiritual landscapes</li>
+      </ul>
+
+    </div>
+  )}
+
+  {destination === "Panchachuli Base Camp" && (
+    <div className="bg-white p-8 rounded-xl shadow-md">
+
+      <p className="text-gray-700 leading-relaxed mb-4">
+        Panchachuli Base Camp Trek is a beautiful Himalayan adventure
+        located in the remote Darma Valley of Uttarakhand. The trek offers
+        breathtaking views of the five Panchachuli peaks and untouched
+        alpine landscapes.
+      </p>
+
+      <p className="text-gray-700 leading-relaxed mb-4">
+        The journey passes through scenic Himalayan villages, pristine
+        rivers, and lush meadows, making it one of the most rewarding
+        trekking experiences in the Kumaon Himalayas.
+      </p>
+
+      <ul className="list-disc pl-6 text-gray-700 mt-4 space-y-2">
+        <li>Views of the majestic Panchachuli Peaks</li>
+        <li>Explore remote Darma Valley</li>
+        <li>Beautiful alpine landscapes</li>
+        <li>Adventure trekking experience</li>
+      </ul>
+
+    </div>
+  )}
+
+</section>
 
 
       {/* INQUIRY FORM */}

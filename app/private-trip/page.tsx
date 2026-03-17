@@ -146,7 +146,7 @@ export default function PrivateTrip() {
 
             <div className="space-y-4 text-gray-700">
 
-              <p><strong>Phone:</strong> +91 6395515336</p>
+              <p><strong>Phone:</strong> +91 6395515336, +91 9389663855</p>
               <p><strong>Email:</strong> kailashnathadikailashtourism@gmail.com</p>
               <p><strong>Location:</strong> Uttarakhand, India</p>
 

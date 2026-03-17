@@ -19,7 +19,7 @@ export default function GallerySection() {
 
   <div className="text-center">
     <img
-      src="/images/Om2.png"
+      src="/images/Om2.jpeg"
       alt="Om Parvat"
       className="rounded-xl object-cover h-72 w-full hover:scale-105 transition duration-300"
     />
@@ -46,7 +46,7 @@ export default function GallerySection() {
 
   <div className="text-center">
     <img
-      src="/images/Om1.png"
+      src="/images/Om1.jpeg"
       alt="Om Snow Symbol"
       className="rounded-xl object-cover h-72 w-full hover:scale-105 transition duration-300"
     />

@@ -64,7 +64,7 @@ export default function GalleryPage() {
 
           <div className="text-center group">
             <img
-              src="/images/Om2.png"
+              src="/images/Om2.jpeg"
               alt="Om Parvat"
               className="rounded-xl w-full h-[300px] object-cover group-hover:scale-105 transition duration-300"
             />
@@ -97,7 +97,7 @@ export default function GalleryPage() {
 
           <div className="text-center group">
             <img
-              src="/images/Om1.png"
+              src="/images/Om1.jpeg"
               alt="Om Snow Symbol"
               className="rounded-xl w-full h-[300px] object-cover group-hover:scale-105 transition duration-300"
             />

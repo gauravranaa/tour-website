@@ -57,7 +57,7 @@ export default function PopupModal() {
         {/* Left Image */}
         <div className="w-1/2 hidden md:block">
           <img
-            src="/images/Om2.png"
+            src="/images/Om2.jpeg"
             className="h-full w-full object-cover"
             alt="Kailash"
           />

@@ -57,7 +57,7 @@ export default function PopupModal() {
         {/* Left Image */}
         <div className="w-1/2 hidden md:block">
           <img
-            src="/images/kailash.jpg"
+            src="/images/Om2.png"
             className="h-full w-full object-cover"
             alt="Kailash"
           />
@@ -93,6 +93,13 @@ export default function PopupModal() {
             className="border w-full p-3 rounded-lg mb-4"
             required
           />
+           <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500"
+                required
+              />
 
           <textarea
             name="message"

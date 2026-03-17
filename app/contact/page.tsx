@@ -1,10 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function Contact() {
+
+  const form = useRef<HTMLFormElement>(null);
 
   const images = [
     "/images/adikailash4.png",
@@ -21,6 +24,28 @@ export default function Contact() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_b8h73c9",
+        "template_74fncno",
+        form.current,
+        "as7tYQYFEQ408U4Q5"
+      )
+      .then(() => {
+        alert("Inquiry Sent Successfully!");
+        form.current?.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send inquiry");
+      });
+  };
 
   return (
     <div>
@@ -46,7 +71,6 @@ export default function Contact() {
 
         </div>
       </section>
-
 
       {/* CONTACT SECTION */}
       <section className="py-24 px-8 max-w-6xl mx-auto">
@@ -95,7 +119,6 @@ export default function Contact() {
 
           </div>
 
-
           {/* FORM */}
           <div className="bg-gray-100 p-8 rounded-2xl shadow-lg">
 
@@ -103,31 +126,48 @@ export default function Contact() {
               Send an Inquiry
             </h2>
 
-            <form className="space-y-4">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="space-y-4"
+            >
 
               <input
                 type="text"
+                name="name"
                 placeholder="Full Name"
-                className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500"
+                required
               />
 
               <input
                 type="email"
+                name="email"
                 placeholder="Email Address"
-                className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500"
+                required
               />
 
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone Number"
-                className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500"
+                required
               />
 
               <textarea
+                name="message"
                 placeholder="Which expedition are you interested in?"
                 rows={4}
-                className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500"
               ></textarea>
+
+              <input
+                type="hidden"
+                name="time"
+                value={new Date().toLocaleString()}
+              />
 
               <button
                 type="submit"
@@ -143,7 +183,6 @@ export default function Contact() {
         </div>
 
       </section>
-
 
       <Footer />
 

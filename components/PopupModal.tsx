@@ -1,23 +1,49 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function PopupModal() {
 
   const [open, setOpen] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true);
-    }, 2000); // 2 seconds delay
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        "service_b8h73c9",
+        "template_74fncno",
+        form.current,
+        "as7tYQYFEQ408U4Q5"
+      )
+      .then(() => {
+        alert("Inquiry Sent Successfully!");
+        form.current?.reset();
+        setOpen(false);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send inquiry");
+      });
+  };
 
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-md z-50">
+
       <div className="bg-white rounded-2xl shadow-xl max-w-3xl w-full flex overflow-hidden relative">
 
         {/* Close Button */}
@@ -33,11 +59,17 @@ export default function PopupModal() {
           <img
             src="/images/kailash.jpg"
             className="h-full w-full object-cover"
+            alt="Kailash"
           />
         </div>
 
-        {/* Right Form */}
-        <div className="p-8 w-full md:w-1/2">
+        {/* FORM */}
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="p-8 w-full md:w-1/2"
+        >
+
           <h2 className="text-2xl font-bold mb-4">
             Plan Your Sacred Journey
           </h2>
@@ -48,25 +80,41 @@ export default function PopupModal() {
 
           <input
             type="text"
+            name="name"
             placeholder="Enter your name"
             className="border w-full p-3 rounded-lg mb-4"
+            required
           />
 
           <input
             type="tel"
+            name="phone"
             placeholder="Enter Mobile Number"
             className="border w-full p-3 rounded-lg mb-4"
+            required
           />
 
           <textarea
+            name="message"
             placeholder="Which expedition are you interested in?"
             className="border w-full p-3 rounded-lg mb-4"
           />
 
-          <button className="bg-orange-500 text-white w-full py-3 rounded-lg hover:bg-orange-600">
+          {/* time field for email template */}
+          <input
+            type="hidden"
+            name="time"
+            value={new Date().toLocaleString()}
+          />
+
+          <button
+            type="submit"
+            className="bg-orange-500 text-white w-full py-3 rounded-lg hover:bg-orange-600"
+          >
             Continue
           </button>
-        </div>
+
+        </form>
 
       </div>
     </div>
